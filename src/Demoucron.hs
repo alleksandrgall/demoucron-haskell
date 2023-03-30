@@ -16,6 +16,7 @@ module Demoucron (demoucron) where
 
 import Algebra.Graph.AdjacencyIntMap
 import Control.DeepSeq (deepseq)
+import Control.Monad.Primitive (PrimMonad (..))
 import Control.Monad.ST (runST)
 import Data.Bool (bool)
 import Data.IntMap (IntMap)
@@ -24,7 +25,6 @@ import Data.IntSet (IntSet)
 import qualified Data.IntSet as IntSet
 import Data.List.NonEmpty (NonEmpty (..))
 import Data.Maybe (fromJust)
-import Data.Vector.Generic.Mutable (PrimMonad (..))
 import qualified Data.Vector.Unboxed.Mutable as VM
 
 {- | If the graph `g` represented by `AdjacencyIntMap` is acyclic, `demoucron g` evaluates to `Right xs`.
